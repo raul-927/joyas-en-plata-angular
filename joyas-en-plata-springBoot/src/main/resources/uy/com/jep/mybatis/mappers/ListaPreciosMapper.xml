@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="uy.com.jep.mybatis.mappers.ListaPreciosMapper">
+		  	
+  	<resultMap type="uy.com.jep.domains.ListaPrecios" id="ListaPreciosResult">
+  		<id 	property = "listPrecId" 			column = "list_prec_id"></id>
+  		<result property = "listPrecProductId" 		column = "list_prec_id_trat"/>
+		<result property = "listPrecMonto" 			column = "list_prec_monto"/>
+		
+  	</resultMap>
+  	
+  	<resultMap type="uy.com.jep.domains.ListPrecProductDesc" id="ListaPreciosTratDescResult">
+  		<id 	property = "listPrecId" 			column = "list_prec_id"></id>
+  		<result property = "listPrecProductId" 		column = "list_prec_id_trat"/>
+		<result property = "listPrecMonto" 			column = "list_prec_monto"/>
+		<result property = "listPrecDesc"			column = "list_prec_desc"/>
+  	</resultMap>
+  	
+  
+  	<resultMap type = "uy.com.jep.domains.MaxIdListaPrecios" id ="MaxIdListaPreciosResult">
+  	
+  		<result property ="maxIdListPrecios" column = "Maximo_id"/>
+  		
+  	</resultMap>
+  	
+  	<resultMap type="uy.com.jep.domains.ActualListaPreciosResult" id="ActualListaPreciosResult">
+  		<result property = "listPrecId" 		column ="ID_LISTA"/>
+  		<result property = "listPrecTratId" 	column ="ID_LISTA_TRAT"/>
+  		<result property = "listPrecMonto" 		column ="PRECIO_MONTO"/>
+  		<result property = "auxPrecId" 			column ="ID_AUX"/>
+  		<result property = "auxListaPreciosId" 	column ="ID_AUX_LIST"/>
+  		<result property = "auxPrecFechIni" 	column ="FECH_INI"/>
+  		<result property = "auxPrecFechFin" 	column ="FECHA_FIN"/>
+  		<result property = "auxPrecDescripcion" column ="DESC"/>
+  	</resultMap>
+  
+</mapper>
