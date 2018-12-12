@@ -70,7 +70,7 @@ public interface ClientesMapper {
 						"#{emergenciaMovil} " +
 						")")
 	@Options(useGeneratedKeys=true, keyProperty="pacId") 
-	void insertCliente(Cliente cliente);
+	Cliente insertCliente(Cliente cliente);
 	
 	
 	@Update("UPDATE pacientes " +
@@ -82,7 +82,7 @@ public interface ClientesMapper {
 					"emergencia_movil =#{emergenciaMovil} " +
 					
 			"WHERE 	 cedula = #{cedula}")
-	void updateCliente(Cliente cliente);
+	Cliente updateCliente(Cliente cliente);
 	
 	@Delete("DELETE FROM pacientes WHERE  id =#{pacId}")
 	void deleteCliente(int id);

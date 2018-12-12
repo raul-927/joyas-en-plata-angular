@@ -75,19 +75,24 @@ private Logger logger = LoggerFactory.getLogger(getClass());
 	}
 	
 	@Override
-	public void insertCliente(Cliente cliente)
+	public Cliente insertCliente(Cliente cliente)
 	{
+		
 		logger.debug("insertCliente :"+cliente);
 		
-		clientesMapper.insertCliente(cliente);
+		Cliente client =  clientesMapper.insertCliente(cliente);
+		
+		return client;
 	}
 	
 	@Override
-	public void updateCliente(Cliente cliente)
+	public Cliente updateCliente(Cliente cliente)
 	{
 		logger.debug("updateCliente :"+cliente);
 		
-		clientesMapper.updateCliente(cliente);
+		Cliente client = clientesMapper.updateCliente(cliente);
+		
+		return client;
 	}
 	
 	@Override
