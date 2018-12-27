@@ -16,11 +16,11 @@ public interface AuxPreciosMapper
 {
 	
 	@Select("SELECT * FROM aux_precios")
-	@ResultMap("uy.com.cvaucher.services.mybatis.mappers.AuxPreciosMapper.AuxPreciosResult")
+	@ResultMap("uy.com.jep.mybatis.mappers.AuxPreciosMapper.AuxPreciosResult")
 	List<AuxPrecios> findAllAuxPrecios();
 	
 	@Select("SELECT * FROM aux_precios WHERE aux_prec_id = #{auxPrecId}")
-	@ResultMap("uy.com.cvaucher.services.mybatis.mappers.AuxPreciosMapper.AuxPreciosResult")
+	@ResultMap("uy.com.jep.mybatis.mappers.AuxPreciosMapper.AuxPreciosResult")
 	AuxPrecios findAuxPreciosById(int auxPrecId);
 	
 	

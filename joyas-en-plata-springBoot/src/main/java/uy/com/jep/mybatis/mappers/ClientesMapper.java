@@ -15,8 +15,8 @@ import uy.com.jep.domains.SearchClientes;
 
 public interface ClientesMapper {
 	
-	@Select("SELECT * FROM clientes")
-	@ResultMap("uy.com.cvaucher.ms.pacientes.mybatis.mapper.PacientesMapper.PacientesResult")
+	@Select("SELECT * FROM cliente")
+	@ResultMap("uy.com.jep.mybatis.mappers.ClientesMapper.ClientesResult")
 	List<Cliente> findAllClientes();
 	
 	
@@ -28,34 +28,34 @@ public interface ClientesMapper {
 	@ResultMap("uy.com.cvaucher.services.mappers.PacientesMapper.PacientesResult")*/
 	List<Cliente> findClientes(SearchClientes searchClientes);
 	
-	@Select("SELECT * FROM pacientes WHERE id = #{id}")
-	@ResultMap("uy.com.cvaucher.ms.pacientes.mybatis.mapper.PacientesMapper.PacientesResult")
+	@Select("SELECT * FROM cliente WHERE id = #{id}")
+	@ResultMap("uy.com.jep.mybatis.mappers.ClientesMapper.ClientesResult")
 	Cliente findClienteById(int id);
 	
-	@Select("SELECT * FROM pacientes WHERE nombre = #{nombre:VARCHAR}")
-	@ResultMap("uy.com.cvaucher.ms.pacientes.mybatis.mapper.PacientesMapper.PacientesResult")
+	@Select("SELECT * FROM cliente WHERE nombre = #{nombre:VARCHAR}")
+	@ResultMap("uy.com.jep.mybatis.mappers.ClientesMapper.ClientesResult")
 	List<Cliente> findClientesByNom(String nombre);
 	
-	@Select("SELECT * FROM pacientes WHERE apellido = #{apellido:VARCHAR}")
-	@ResultMap("uy.com.cvaucher.ms.pacientes.mybatis.mapper.PacientesMapper.PacientesResult")
+	@Select("SELECT * FROM cliente WHERE apellido = #{apellido:VARCHAR}")
+	@ResultMap("uy.com.jep.mybatis.mappers.ClientesMapper.ClientesResult")
 	List<Cliente> findClientesByApellido(String apellido);
 	
 	
-	@Select("SELECT * FROM pacientes WHERE cedula = #{cedula}")
-	@ResultMap("uy.com.cvaucher.ms.pacientes.mybatis.mapper.PacientesMapper.PacientesResult")
+	@Select("SELECT * FROM cliente WHERE cedula = #{cedula}")
+	@ResultMap("uy.com.jep.mybatis.mappers.ClientesMapper.ClientesResult")
 	Cliente findClienteByCedula(int cedula);
 	
-	@Select("SELECT * FROM pacientes WHERE cedula = #{cedula}")
-	@ResultMap("uy.com.cvaucher.ms.pacientes.mybatis.mapper.PacientesMapper.PacientesResult")
+	@Select("SELECT * FROM cliente WHERE cedula = #{cedula}")
+	@ResultMap("uy.com.jep.mybatis.mappers.ClientesMapper.ClientesResult")
 	List<Cliente> findClienteByCedulaList(int cedula);
 	
 	
-	@Select(("SELECT * FROM pacientes WHERE nombre = #{nombre}"
+	@Select(("SELECT * FROM cliente WHERE nombre = #{nombre}"
 			+ " AND apellido = #{apellido}"))
-	@ResultMap("uy.com.cvaucher.ms.pacientes.mybatis.mapper.PacientesMapper.PacientesResult")
+	@ResultMap("uy.com.jep.mybatis.mappers.ClientesMapper.ClientesResult")
 	List<Cliente> findClientesByNombreAndApellido(@Param("nombre")String nombre, @Param("apellido") String apellido);
 	
-	@Insert("INSERT INTO pacientes " +
+	@Insert("INSERT INTO cliente " +
 						"(nombre, " +
 						"apellido, " +
 						"cedula, " +

@@ -1,5 +1,7 @@
 package uy.com.jep.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -19,6 +21,16 @@ public class ClienteController {
 	@Autowired
 	private ClienteService clienteService;
 	
+	
+	@RequestMapping(value ="/clientes", method =RequestMethod.GET, 
+			produces ={MediaType.APPLICATION_JSON_VALUE})
+	@ResponseBody
+	public ResponseEntity<List<Cliente>> getAllClientes(){
+		HttpHeaders responseHeaders = new HttpHeaders();
+		List<Cliente> clientes = this.clienteService.findAllClientes();
+		
+		return new ResponseEntity<List<Cliente>>(clientes,responseHeaders, HttpStatus.OK);
+	}
 	
 	@RequestMapping(value ="/cliente", method =RequestMethod.POST,
 			consumes ={MediaType.APPLICATION_JSON_VALUE},
