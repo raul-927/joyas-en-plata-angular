@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter;
 
+import uy.com.jep.services.ClienteService;
+
 /*
 import javax.sql.DataSource;
 import org.apache.ibatis.datasource.pooled.PooledDataSource;
@@ -20,18 +22,18 @@ import org.springframework.context.annotation.Bean;
  */
 @Configuration
 @EnableAspectJAutoProxy
-@ComponentScan("uy.com.cvaucher.ms.pacientes")
+@ComponentScan("uy.com.jep")
 public class RootContextConfig {
 	
 
-//	@Autowired
-//	private PacienteService pacienteService;
+	@Autowired
+	private ClienteService clienteService;
 	
-	@Bean(name="/cvaucher.pacientes")
+	@Bean(name="/jep.clientes")
 	public HttpInvokerServiceExporter httpPacientesService() {
 		HttpInvokerServiceExporter httpInvokerServiceExporter = new HttpInvokerServiceExporter();
-		//httpInvokerServiceExporter.setService(pacienteService);
-		//httpInvokerServiceExporter.setServiceInterface(PacienteService.class);
+		httpInvokerServiceExporter.setService(clienteService);
+		httpInvokerServiceExporter.setServiceInterface(ClienteService.class);
 		return httpInvokerServiceExporter;
 	}
 	

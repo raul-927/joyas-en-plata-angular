@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@MapperScan(value="uy.com.cvaucher.ms.pacientes.mybatis.mapper")
+@MapperScan(value="uy.com.jep.mybatis.mappers")
 public class MybatisContextConfig {
 	
 	@Value("${jdbc.driverClassName}")
@@ -54,7 +54,7 @@ public class MybatisContextConfig {
 	@Bean
 	public SqlSessionFactory sqlSessionFactory() throws Exception{
 		
-		String typeAliasesPackage 	="uy.com.jep.pacientes.domain";
+		String typeAliasesPackage 	="uy.com.jep.domain";
 		String typeHandlersPackage 	="uy.com.jep.typehandlers";
 		String relativePath 		="classpath*:uy/com/jep/mybatis/mappers/*.xml";
 		PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();

@@ -2,24 +2,34 @@ package uy.com.jep.domains;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-
 import uy.com.jep.annotations.Cedula;
 import uy.com.jep.annotations.CedulaExistente;
 
+@Entity
+@Table(name="cliente")
 public class Cliente implements Serializable{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String nombre;
 	private String apellido;
 	
+	@Id
 	@Digits(message ="Debe ingresar unicamente numeros", fraction = 0, integer = 8)
 	@Max(value=99999999, message ="ERROR; Ingrse un maximo de 8 digitos")
 	@NotNull(message ="ERROR; Debe ingresar un nro de cedula valido")

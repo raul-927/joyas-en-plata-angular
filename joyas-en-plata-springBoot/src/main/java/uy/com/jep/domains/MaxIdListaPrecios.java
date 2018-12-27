@@ -2,6 +2,7 @@ package uy.com.jep.domains;
 
 import java.io.Serializable;
 
+
 public class MaxIdListaPrecios implements Serializable
 {
 
