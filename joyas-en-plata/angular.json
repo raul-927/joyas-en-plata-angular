@@ -23,9 +23,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+            	"src/css/bootstrap.min.css",
+            	"src/css/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+            	"src/js/csvaucher.js",
+            	"src/js/jquery.js",
+            	"src/js/bootstrap.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -72,9 +77,14 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.css"
+            	"src/css/bootstrap.min.css",
+            	"src/css/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+            	"src/js/csvaucher.js",
+            	"src/js/jquery.js",
+            	"src/js/bootstrap.js"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"
