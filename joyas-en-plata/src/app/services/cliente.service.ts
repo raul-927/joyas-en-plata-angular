@@ -4,14 +4,14 @@ import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import {Cliente} from '../domains/Cliente';
-import {PROPIEDADES} from '../domains/Propiedades';
+import {Propiedades} from '../domains/Propiedades';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClienteService {
 
-  private url: string = PROPIEDADES.host + '/cliente/';
+  private url: string = Propiedades.HOST + '/cliente/';
 
   data: Cliente[];
 

@@ -1,3 +1,3 @@
-export const PROPIEDADES = {
-    host: '/joyas-en-plata'
+export class Propiedades {
+    public static HOST = '/joyas-en-plata';
 }
