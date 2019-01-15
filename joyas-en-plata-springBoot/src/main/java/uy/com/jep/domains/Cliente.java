@@ -38,8 +38,7 @@ public class Cliente implements Serializable{
 	@CedulaExistente(message="Cedula ya ingresada en el sistema")
 	private int cedula;
 	private String 	ocupacion;
-	private String	sociedadMedica;
-	private String	emergenciaMovil;
+
 	
 	
 	public int getId() {
@@ -60,18 +59,7 @@ public class Cliente implements Serializable{
 	public void setOcupacion(String ocupacion) {
 		this.ocupacion = ocupacion;
 	}
-	public String getSociedadMedica() {
-		return sociedadMedica;
-	}
-	public void setSociedadMedica(String sociedadMedica) {
-		this.sociedadMedica = sociedadMedica;
-	}
-	public String getEmergenciaMovil() {
-		return emergenciaMovil;
-	}
-	public void setEmergenciaMovil(String emergenciaMovil) {
-		this.emergenciaMovil = emergenciaMovil;
-	}
+	
 	public String getNombre() {
 		return nombre;
 	}

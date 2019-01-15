@@ -14,8 +14,8 @@ public class SearchClientes implements Serializable
 	@Digits(integer=8, message = "ERROR; Debe ingresar un numero de cedula de 8 digitos", fraction=0)
 	private int cedula;
 	
-	private String pacNombre;
-	private String pacApellido;
+	private String nombre;
+	private String apellido;
 	
 	public int getCedula() 
 	{
@@ -26,25 +26,20 @@ public class SearchClientes implements Serializable
 		
 		this.cedula = cedula;
 	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getApellido() {
+		return apellido;
+	}
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
 	
 	
-	public String getPacNombre() 
-	{
-		return pacNombre;
-	}
-	public void setPacNombre(String pacNombre) 
-	{
-		this.pacNombre = pacNombre;
-	}
 	
-	
-	public String getPacApellido() 
-	{
-		return pacApellido;
-	}
-	public void setPacApellido(String pacApellido) 
-	{
-		this.pacApellido = pacApellido;
-	}
 
 }

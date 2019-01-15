@@ -108,29 +108,26 @@ private Logger logger = LoggerFactory.getLogger(getClass());
 		logger.debug("findClientes :"+ searchClientes);
 		List<Cliente> clientes = null;
 		
-		if(searchClientes.getCedula()!=0){
-			 clientes =  clientesMapper.findClienteByCedulaList(searchClientes.getCedula());
-		}
-		else if(searchClientes.getCedula() == 0 
-				&& !searchClientes.getPacNombre().equals("") 
-				&& searchClientes.getPacApellido().equals("")){
-			clientes = clientesMapper.findClientesByNom(searchClientes.getPacNombre());
+		if(searchClientes.getCedula() == 0 
+				&& !searchClientes.getNombre().equals("") 
+				&& searchClientes.getApellido().equals("")){
+			clientes = clientesMapper.findClientesByNom(searchClientes.getNombre());
 		}
 		else if(searchClientes.getCedula() == 0  
-				&& searchClientes.getPacNombre().equals("") 
-				&& !searchClientes.getPacApellido().equals("")){
+				&& searchClientes.getNombre().equals("") 
+				&& !searchClientes.getApellido().equals("")){
 			
-			clientes = clientesMapper.findClientesByApellido(searchClientes.getPacApellido());
+			clientes = clientesMapper.findClientesByApellido(searchClientes.getApellido());
 		}
 		else if(searchClientes.getCedula() == 0 
-				&& !searchClientes.getPacNombre().equals("")
-				&& !searchClientes.getPacApellido().equals("")){
+				&& !searchClientes.getNombre().equals("")
+				&& !searchClientes.getApellido().equals("")){
 			
-			clientes = clientesMapper.findClientesByNombreAndApellido(searchClientes.getPacNombre(), searchClientes.getPacApellido());
+			clientes = clientesMapper.findClientesByNombreAndApellido(searchClientes.getNombre(), searchClientes.getApellido());
 		}
 		else if(searchClientes.getCedula()== 0 
-				&& searchClientes.getPacNombre().equals("") 
-				&& searchClientes.getPacApellido().equals("")){
+				&& searchClientes.getNombre().equals("") 
+				&& searchClientes.getApellido().equals("")){
 			
 			clientes = clientesMapper.findAllClientes();
 		}
