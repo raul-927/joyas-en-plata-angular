@@ -14,6 +14,4 @@
 		<result property = "cedula"	 					column = "cedula"/>
 		<result property = "ocupacion" 					column = "ocupacion"/>
   	</resultMap>
-  	
-  
 </mapper>
