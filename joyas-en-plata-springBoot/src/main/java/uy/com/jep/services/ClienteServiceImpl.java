@@ -12,7 +12,7 @@ import uy.com.jep.domains.SearchClientes;
 import uy.com.jep.mybatis.mappers.ClientesMapper;
 
 
-@Service("pacienteService")
+@Service("clienteService")
 public class ClienteServiceImpl implements ClienteService {
 
 private Logger logger = LoggerFactory.getLogger(getClass());
