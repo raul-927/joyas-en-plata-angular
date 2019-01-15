@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="uy.com.jep.mybatis.mappers.AuxPreciosMapper">
+		  	
+  	<resultMap type="uy.com.jep.domains.AuxPrecios" id="AuxPreciosResult">
+  	
+  		<id	property = "auxPrecId" 	column = "aux_prec_id"/>
+  		
+ 		<result property ="auxListaPreciosId" column ="aux_prec_id_list"/>
+		<result property = "auxPrecFechIni" column = "aux_prec_fech_ini"/>
+		<result property = "auxPrecFechFin"	column = "aux_prec_fech_fin"/>
+		<result property = "auxPrecDescripcion" column ="aux_prec_descripcion"/>
+  	</resultMap>
+  	
+  
+</mapper>
