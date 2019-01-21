@@ -24,12 +24,11 @@ public class Cliente implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nombre;
 	private String apellido;
 	
-	@Id
 	@Digits(message ="Debe ingresar unicamente numeros", fraction = 0, integer = 8)
 	@Max(value=99999999, message ="ERROR; Ingrse un maximo de 8 digitos")
 	@NotNull(message ="ERROR; Debe ingresar un nro de cedula valido")
