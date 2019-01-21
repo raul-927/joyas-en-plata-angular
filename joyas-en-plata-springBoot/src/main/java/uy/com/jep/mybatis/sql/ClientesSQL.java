@@ -1,5 +1,7 @@
 package uy.com.jep.mybatis.sql;
 
+import java.util.Map;
+
 import org.apache.ibatis.jdbc.SQL;
 
 import uy.com.jep.domains.Cliente;
@@ -49,11 +51,11 @@ public class ClientesSQL {
 	public String insertCliente(Cliente cliente) {
 		return new SQL() {{
 			INSERT_INTO("cliente");
-			VALUES("nombre", cliente.getNombre());
-			VALUES("apellido", cliente.getApellido());
+			VALUES("nombre", "'".concat(cliente.getNombre().toString()).concat("'"));
+			VALUES("apellido", "'".concat(cliente.getApellido().toString()).concat("'"));
 			VALUES("cedula", String.valueOf(cliente.getCedula()));
-			if(cliente.getOcupacion()!= null && cliente.getOcupacion() !="") {
-				VALUES("ocupacion",cliente.getOcupacion());
+			if(cliente.getOcupacion().toString()!= null && cliente.getOcupacion().toString() !="") {
+				VALUES("ocupacion","'".concat(cliente.getOcupacion().toString()).concat("'"));
 			}
 		}}.toString();
 	}
@@ -74,7 +76,8 @@ public class ClientesSQL {
 		}}.toString(); 
 	}
 	
-	public String findClienteByCedula(int cedula) {
+	public String findClienteByCedula(Map<String, Object>map) {
+		int cedula = Integer.parseInt(map.get("cedula").toString());
 		return new SQL(){{
 			SELECT("id, nombre, apellido, cedula, ocupacion");
 			FROM("cliente");

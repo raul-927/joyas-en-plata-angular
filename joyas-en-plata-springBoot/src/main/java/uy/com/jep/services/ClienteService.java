@@ -15,8 +15,8 @@ public interface ClienteService {
 	List<Cliente> findClientesByApellido(String apellido);
 	List<Cliente> findClientes(SearchClientes searchClientes);
 	List<Cliente> findClientesByNombreAndApellido(String nombre, String apellido);
-	Cliente insertCliente(Cliente cliente);
-	Cliente updateCliente(Cliente cliente);
+	void insertCliente(Cliente cliente);
+	void updateCliente(Cliente cliente);
 	void deleteCliente(int id);
 	void deleteClienteByCedula(int cedula);
 	

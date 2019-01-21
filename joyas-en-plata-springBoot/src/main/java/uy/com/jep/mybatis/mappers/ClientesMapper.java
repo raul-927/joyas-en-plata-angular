@@ -11,6 +11,7 @@ import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.annotations.Update;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import uy.com.jep.domains.Cliente;
 import uy.com.jep.domains.SearchClientes;
@@ -42,7 +43,7 @@ public interface ClientesMapper {
 	
 	@SelectProvider(type= ClientesSQL.class, method ="findClienteByCedula")
 	@ResultMap("uy.com.jep.mybatis.mappers.ClientesMapper.ClientesResult")
-	Cliente findClienteByCedula(int cedula);
+	Cliente findClienteByCedula(@Param("cedula") int cedula);
 	
 //	@SelectProvider(type= ClientesSQL.class, method ="findClienteByCedulaList")
 //	@ResultMap("uy.com.jep.mybatis.mappers.ClientesMapper.ClientesResult")
@@ -55,8 +56,8 @@ public interface ClientesMapper {
 	List<Cliente> findClientesByNombreAndApellido(@Param("nombre")String nombre, @Param("apellido") String apellido);
 	
 	@InsertProvider(type= ClientesSQL.class, method="insertCliente")
-	@Options(useGeneratedKeys=true, keyProperty="pacId") 
-	Cliente insertCliente(Cliente cliente);
+	@Options(useGeneratedKeys=true, keyProperty="id") 
+	void insertCliente(@Param("cliente") Cliente cliente);
 	
 	
 	@Update("UPDATE cliente " +
@@ -65,7 +66,7 @@ public interface ClientesMapper {
 					"cedula =#{cedula}, " +			
 					"ocupacion = #{ocupacion}, " +
 			"WHERE 	 cedula = #{cedula}")
-	Cliente updateCliente(Cliente cliente);
+	void updateCliente(Cliente cliente);
 	
 	@Delete("DELETE FROM cliente WHERE  id =#{pacId}")
 	void deleteCliente(int id);

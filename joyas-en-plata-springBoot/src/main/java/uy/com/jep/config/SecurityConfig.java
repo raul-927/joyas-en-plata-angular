@@ -23,14 +23,14 @@ public class SecurityConfig{ //extends  WebSecurityConfigurerAdapter{
 //	@Autowired
 //	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
-	@Autowired
-	private DataSource dataSource;
-	
-	@Value("${spring.queries.users-query}")
-	private String usersQuery;
-	
-	@Value("${spring.queries.roles-query}")
-	private String rolesQuery;
+//	@Autowired
+//	private DataSource dataSource;
+//	
+//	@Value("${spring.queries.users-query}")
+//	private String usersQuery;
+//	
+//	@Value("${spring.queries.roles-query}")
+//	private String rolesQuery;
 	
 //	@Override
 //	protected void configure(AuthenticationManagerBuilder auth)
