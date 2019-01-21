@@ -21,6 +21,15 @@ import { Item1Component } from './components/templates/item1/item1.component';
 import { DepartmentComponent } from './components/department/department.component';
 import { ArticleComponent } from './components/article/article.component';
 import { ClienteComponent } from './components/cliente/cliente.component';
+import { ClienteListComponent } from './components/cliente-list/cliente-list.component';
+import { ClienteService } from './services/cliente.service';
+// import { AppRoutingModule } from './app-routing.module';
+import {HttpClientModule } from '@angular/common/http';
+import { Http} from '@angular/http';
+import {
+FormsModule,
+ReactiveFormsModule
+} from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,12 +51,23 @@ import { ClienteComponent } from './components/cliente/cliente.component';
     Item1Component,
     DepartmentComponent,
     ArticleComponent,
-    ClienteComponent
+    ClienteComponent,
+    ClienteListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    // AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  entryComponents: [AppComponent,
+    ClienteComponent
+  ],
+  providers: [ClienteService,
+  {
+      provide: Http
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule {

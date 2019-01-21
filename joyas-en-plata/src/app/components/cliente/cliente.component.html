@@ -1,3 +1,39 @@
-<p>
-  cliente works!
-</p>
+<form class="ui large form segment"
+   #f="ngForm"
+   (ngSubmit)="insertClientes(f.value)"
+   >
+
+  <h3 class="ui header">Add a Link</h3>
+
+  <div class="field">
+    <label for="nombre">Nombre:</label>
+    <input id="nombre" name="nombre" ngModel>
+  </div>
+
+  <div class="field">
+    <label for="apellido">Apellido:</label>
+    <input id="apellido" name="apellido" ngModel> 
+  </div>
+
+  <div class="field">
+    <label for="cedula">Cedula:</label>
+    <input id="cedula" name="cedula" ngModel> 
+  </div>
+
+  <div class="field">
+    <label for="ocupacion">Ocupacion:</label>
+    <input id="ocupacion" name="ocupacion" ngModel> 
+  </div>
+  
+  <!-- added this button -->
+  <button type="submit"
+    class="ui positive right floated button">
+    Submit link
+  </button>
+</form>
+<div class="ui grid posts">
+  <app-cliente-list
+    *ngFor="let cliente of clientes"
+    [cliente]="cliente">
+  </app-cliente-list>
+</div>
