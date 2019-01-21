@@ -11,7 +11,7 @@ import {Propiedades} from '../domains/Propiedades';
 })
 export class ClienteService {
 
-  private url: string = Propiedades.HOST + '/cliente/';
+  private url: string = Propiedades.HOST + '/clientes';
 
   data: Cliente[];
 

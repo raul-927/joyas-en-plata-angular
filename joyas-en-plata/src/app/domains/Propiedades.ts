@@ -1,3 +1,3 @@
 export class Propiedades {
-    public static HOST = '/joyas-en-plata';
+    public static HOST = 'localhost:8080';
 }
