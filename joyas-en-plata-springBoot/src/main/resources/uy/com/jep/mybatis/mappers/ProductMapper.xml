@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="uy.com.jep.mybatis.mappers.ProductMapper">
+  	<resultMap type="uy.com.jep.domains.Product" id="ProductResult">
+  		<id 	property="id" 					 column = "id"/>
+		<result property = "name" 				 column = "name"/>
+		<result property="imageUrl"				 column = "image_url"/>
+		<association property="impuesto" 
+			resultMap="uy.com.jep.mybatis.mappers.ImpuestoMapper.ImpuestoResult"/>
+		<association property="department" 
+			resultMap="uy.com.jep.mybatis.mappers.DepartmentMapper.DepartmentResult"/>
+  	</resultMap>
+</mapper>

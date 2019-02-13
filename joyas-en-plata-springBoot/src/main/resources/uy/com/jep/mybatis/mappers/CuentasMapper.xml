@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="uy.com.jep.mybatis.mappers.CuentasMapper">
+		  	
+  	<resultMap type="uy.com.jep.domains.Cuentas" id="CuentasResult">
+  	    
+  		<id 	property="cuentaId" 							column = "cuenta_id"/>
+  		
+		<result property = "cuentaDesc" 					column = "cuenta_desc"/>
+		<result property = "cuentaTipo" 					column = "cuenta_tipo"/>
+		<result property = "cuentaFecha"	 				column = "cuenta_fecha"/>
+		<result property = "cuentaHora" 					column = "cuenta_hora"/>
+		<result property = "cuentaUsuario" 					column = "cuenta_usuario"/>
+
+		<association property="grupoCuentas" 
+			resultMap="uy.com.jep.mybatis.mappers.GrupoCuentasMapper.GrupoCuentasResult"/>
+		
+  	</resultMap>
+</mapper>

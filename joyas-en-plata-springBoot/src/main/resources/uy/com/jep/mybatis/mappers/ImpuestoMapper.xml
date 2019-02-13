@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="uy.com.jep.mybatis.mappers.ImpuestoMapper">
+		  	
+  	<resultMap type="uy.com.jep.domains.Impuesto" id="ImpuestoResult">
+  	    
+  		<id 	property="impuestoId" 			column = "impuesto_id"/>
+  		
+		<result property = "impuestoDesc" 		column = "impuesto_desc"/>
+		<result property = "impuestoDescAbrv" 	column = "impuesto_desc_abrv"/>
+		<result property = "impuestoValor"	 	column = "impuesto_valor"/>
+		<result property = "impuestoTipo" 		column = "impuesto_tipo"/>
+		<association property="impuestoCuenta" 
+			resultMap="uy.com.jep.mybatis.mappers.CuentasMapper.CuentasResult"/>
+		
+  	</resultMap>
+</mapper>

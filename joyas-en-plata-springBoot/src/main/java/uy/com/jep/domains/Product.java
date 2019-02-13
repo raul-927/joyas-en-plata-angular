@@ -1,12 +1,11 @@
 package uy.com.jep.domains;
 
 import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,14 +17,17 @@ public class Product implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
 	private String imageUrl;
 	
-	@OneToOne
+	@ManyToOne
+	private Impuesto impuesto;
+	
+	@ManyToOne
 	private Department department;
-	private int price;
+	
 	
 	public int getId() {
 		return id;
@@ -51,10 +53,12 @@ public class Product implements Serializable{
 	public void setDepartment(Department department) {
 		this.department = department;
 	}
-	public int getPrice() {
-		return price;
+	
+	public Impuesto getImpuesto() {
+		return impuesto;
 	}
-	public void setPrice(int price) {
-		this.price = price;
+	public void setImpuesto(Impuesto impuesto) {
+		this.impuesto = impuesto;
 	}
+	
 }
