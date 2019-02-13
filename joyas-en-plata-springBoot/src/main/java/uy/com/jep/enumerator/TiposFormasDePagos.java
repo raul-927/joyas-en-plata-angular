@@ -8,21 +8,21 @@ public enum TiposFormasDePagos
 	DP(4,"Deposito Cuenta Bancaria"), 
 	CE(5,"Credito Efectivo");
 	
-	private final int tipoFormaPago;
-	private final String descFormaPago;
+	private final int codigo;
+	private final String descripcion;
 	
 	
-	TiposFormasDePagos(int tipoFormaPago, String descFormaPago)
+	TiposFormasDePagos(int codigo, String descripcion)
 	{
-		this.tipoFormaPago = tipoFormaPago;
-		this.descFormaPago = descFormaPago;
+		this.codigo = codigo;
+		this.descripcion = descripcion;
 	}
 	
-	public int getTipoFormaPago()
-	{
-		return this.tipoFormaPago;
+	public int getCodigo(){
+		return this.codigo;
 	}
-	public String getDecFormaPago(){
-		return this.descFormaPago;
+	
+	public String getDescripcion(){
+		return this.descripcion;
 	}
 }

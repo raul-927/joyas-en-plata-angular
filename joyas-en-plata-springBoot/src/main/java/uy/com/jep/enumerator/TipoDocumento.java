@@ -6,16 +6,16 @@ public enum TipoDocumento {
 	CEE(3, "Carné de Extrangería"),
 	PAS(4, "Pasaporte");
 	
-	private int idDoc;
+	private int codigo;
 	private String descripcion;
 	
-	TipoDocumento(int idDoc, String descripcion){
-		this.idDoc = idDoc;
+	TipoDocumento(int codigo, String descripcion){
+		this.codigo = codigo;
 		this.descripcion = descripcion;
 	}
 	
-	public int getIdDoc(){
-		return this.idDoc;
+	public int getCodigo(){
+		return this.codigo;
 	}
 
 	public String getDescripcion() {

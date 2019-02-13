@@ -5,19 +5,19 @@ public enum EstadosCaja {
 	OPEN(1,"Abierta"),
 	CLOSED(2,"Cerrada");
 	
-	private int codEstado;
-	private String descEstado;
+	private int codigo;
+	private String descripcion;
 	
-	EstadosCaja(int codEstado, String descEstado){
-		this.codEstado = codEstado;
-		this.descEstado = descEstado;
+	EstadosCaja(int codigo, String descripcion){
+		this.codigo = codigo;
+		this.descripcion = descripcion;
 	}
 	
-	public int getCodEstado(){
-		return this.codEstado;
+	public int getCodigo(){
+		return this.codigo;
 	}
-	public String getDescEstado(){
-		return this.descEstado;
+	public String getDescripcion(){
+		return this.descripcion;
 	}
 	
 }

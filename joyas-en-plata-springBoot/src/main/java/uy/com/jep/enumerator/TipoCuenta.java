@@ -8,16 +8,16 @@ public enum TipoCuenta {
 	PATRIMONIO(5,"Patrimonio"),
 	EGRESO(6,"Egreso");
 	
-	private int tipo;
+	private int codigo;
 	private String descripcion;
 	
-	TipoCuenta(int tipo, String descripcion){
-		this.tipo = tipo;
+	TipoCuenta(int codigo, String descripcion){
+		this.codigo = codigo;
 		this.descripcion = descripcion;
 	}
 	
-	public int getTipo(){
-		return this.tipo;
+	public int getCodigo(){
+		return this.codigo;
 	}
 	
 	public String getDescripcion(){
