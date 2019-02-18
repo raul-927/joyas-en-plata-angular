@@ -2,6 +2,8 @@ package uy.com.jep.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -33,7 +35,7 @@ public class DepartmentController {
 			consumes ={MediaType.APPLICATION_JSON_VALUE},
 			produces ={MediaType.APPLICATION_JSON_VALUE})
 	@ResponseBody
-	public ResponseEntity<Department> insertDepartment(@RequestBody Department department, BindingResult bindingResult){
+	public ResponseEntity<Department> insertDepartment(@RequestBody @Valid Department department, BindingResult bindingResult){
 		HttpHeaders httpHeaders = new HttpHeaders();
 		
 		if(bindingResult.hasErrors()) {
@@ -83,7 +85,7 @@ public class DepartmentController {
 	@RequestMapping(value ="/departments/{id}", method =RequestMethod.GET, 
 			produces ={MediaType.APPLICATION_JSON_VALUE})
 	@ResponseBody
-	public ResponseEntity<Department> listDepartment(@PathVariable int id){
+	public ResponseEntity<Department> listDepartmentById(@PathVariable int id){
 		HttpHeaders httpHeaders = new HttpHeaders();
 		Department department = this.departmenService.listDepartmentById(id);
 		

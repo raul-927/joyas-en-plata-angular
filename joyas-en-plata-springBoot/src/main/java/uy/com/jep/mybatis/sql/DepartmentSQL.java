@@ -18,7 +18,11 @@ public class DepartmentSQL {
 	
 	public String updateDepartment(Department department) {
 		return new SQL() {{
-			
+			UPDATE("department");
+			if(!department.getName().equals(null) && !department.getName().equals("")) {
+				SET("name = '".concat(department.getName()).concat("'"));
+			}
+			WHERE("id = "+department.getId());
 		}}.toString();
 	}
 	public String deleteDepartment(int id) {

@@ -3,10 +3,7 @@ package uy.com.jep.mybatis.sql;
 import java.util.Map;
 
 import org.apache.ibatis.jdbc.SQL;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import uy.com.jep.domains.Product;
-import uy.com.jep.services.DepartmentService;
 
 
 public class ProductSQL {
@@ -16,16 +13,17 @@ public class ProductSQL {
 		String result =  new SQL() {{
 			INSERT_INTO("product");
 			if(!product.getName().equals(null) && !product.getName().equals("")) {
-				VALUES("name","{name}");
+				VALUES("name","'".concat(product.getName()).concat("'"));
 			}
 			if(!product.getImageUrl().equals(null) && !product.getImageUrl().equals("")) {
-				VALUES("image_url","{imageUrl}");
+				VALUES("image_url","'".concat(product.getImageUrl()).concat("'"));
 			}
-			
-			VALUES("impuesto","{impuesto}");
+			String impuestoId = String.valueOf(product.getImpuesto().getImpuestoId());
+			VALUES("impuesto_impuesto_id","'".concat(impuestoId).concat("'"));
 			
 			if(product.getDepartment() !=null) {
-				VALUES("department_id","{department.id}");
+				String departmentId = String.valueOf(product.getDepartment().getId());
+				VALUES("department_id","'".concat(departmentId).concat("'"));
 			}
 		}}.toString();
 		
@@ -50,6 +48,7 @@ public class ProductSQL {
 			if(product.getImpuesto()!=null) {
 				SET("impuesto_impuesto_id","{impuesto.impuestoId}");
 			}
+			WHERE("id = "+product.getId());
 			
 		}}.toString();
 		
@@ -68,12 +67,13 @@ public class ProductSQL {
 		String sql = new SQL() {{
 			SELECT("p.id, p.image_url, p.name");
 			SELECT("d.id, d.name");
-			SELECT("i.impuesto_id, i.impuesto_desc, i.impuesto_desc_abrv, i.impuesto_tipo, i.impuesto_valor");
+			//SELECT("i.impuesto_id, i.impuesto_desc, i.impuesto_desc_abrv, i.impuesto_tipo, i.impuesto_valor");
 			FROM("product p");
 			FROM("department d");
-			FROM("impuesto i");
-			WHERE("p.impuesto_impuesto_id = i.impuesto_id");
+			//FROM("impuesto i");
 			WHERE("p.department_id = d.id");
+			//WHERE("p.impuesto_impuesto_id = i.impuesto_id");
+			
 			
 		}}.toString();
 		
