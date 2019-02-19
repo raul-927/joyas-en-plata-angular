@@ -35,7 +35,7 @@ export class TablaGrupoCuentasComponent implements OnInit, OnChanges {
       this.grupoCuentas = data;
     });
   }
-  prueba(id: any) {
+  habilitoNombre(id: any) {
     const aux = 'grupoCuentaDesc_' + id;
      console.log('aux: ' + aux);
     console.log('dom id: ' + document.getElementById(aux).id);
