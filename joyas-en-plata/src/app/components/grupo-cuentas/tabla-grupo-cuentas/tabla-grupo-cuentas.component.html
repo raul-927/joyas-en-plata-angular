@@ -1,0 +1,37 @@
+<form [formGroup]="formTable">
+  <table class="table table-hover table-bordered well well-sm">
+    <caption><h1>Grupo de Cuentas</h1></caption>
+      <thead>
+        <td>id</td>
+        <td>Tipo de Cuenta</td>
+        <td>Nombre</td>
+      </thead>
+    <tbody>
+      <tr *ngFor="let item of grupoCuentas, let i=index">
+        <td>
+          {{item.grupoCuentaId}}
+        </td>
+        <td>
+          {{item.tipoCuenta}}
+        </td>
+        <td>
+          <input disabled ="true" type ="text" name ="grupoCuentaDesc_{{item.grupoCuentaId}}" formControlName ="grupoCuentaDesc" id ="grupoCuentaDesc_{{item.grupoCuentaId}}" value ="{{item.grupoCuentaDesc}}"/>
+          
+        </td>
+        <td>
+
+          <input type ="image" (click)="prueba(item.grupoCuentaId)" src="/assets/glyph-iconset-master/svg/si-glyph-pencil.svg" id ="{{item.grupoCuentaId}}"/>
+        
+        </td>
+        <td>
+          <input type ="image" src="/assets/glyph-iconset-master/svg/si-glyph-floppy-disk.svg" href="#"/>
+          
+        </td>
+        <td>
+          <input type ="image" src="/assets/glyph-iconset-master/svg/si-glyph-delete.svg" href="#"/>
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</form>

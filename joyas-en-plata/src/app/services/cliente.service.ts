@@ -5,13 +5,13 @@ import { Observable } from 'rxjs';
 // import { catchError } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Cliente} from '../domains/Cliente';
-import {Propiedades} from '../domains/Propiedades';
-
+import {Propiedades} from '../statics/Propiedades';
+import {UrlClientes} from '../statics/UrlClientes';
 @Injectable()
 export class ClienteService {
 
-  private urlGet: string = Propiedades.HOST + Propiedades.CLIENTES;
-  private urlPost: string = Propiedades.HOST + Propiedades.CLIENTE;
+  private urlGet: string = Propiedades.HOST + UrlClientes.CLIENTES;
+  private urlPost: string = Propiedades.HOST + UrlClientes.CLIENTE;
 
   data: Object;
 
