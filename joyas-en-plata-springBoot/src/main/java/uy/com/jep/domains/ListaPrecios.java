@@ -1,11 +1,13 @@
 package uy.com.jep.domains;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,7 +19,10 @@ public class ListaPrecios implements Serializable
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int listPrecId;
-	private int listPrecProductId;
+	
+	@ManyToMany
+	private List<Product> products;
+	
 	private int	listPrecMonto;
 	
 	public int getListPrecId() {
@@ -27,19 +32,19 @@ public class ListaPrecios implements Serializable
 		this.listPrecId = listPrecId;
 	}
 
-	public int getListPrecProductId() {
-		return listPrecProductId;
-	}
-	public void setListPrecProductId(int listPrecProductId) {
-		this.listPrecProductId = listPrecProductId;
-	}
+	
 	public int getListPrecMonto() {
 		return listPrecMonto;
 	}
 	public void setListPrecMonto(int listPrecMonto) {
 		this.listPrecMonto = listPrecMonto;
 	}
-	
+	public List<Product> getProducts() {
+		return products;
+	}
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
 	
 }
 

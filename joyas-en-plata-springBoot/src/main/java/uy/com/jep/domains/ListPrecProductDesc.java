@@ -1,5 +1,6 @@
 package uy.com.jep.domains;
 
+
 public class ListPrecProductDesc extends ListaPrecios
 {
 

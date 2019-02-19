@@ -60,7 +60,6 @@ public class GrupoCuentasController {
 	}
 	
 	@RequestMapping(value ="/grupoCuenta/{grupoCuentaId}", method =RequestMethod.DELETE,
-			consumes ={MediaType.APPLICATION_JSON_VALUE},
 			produces ={MediaType.APPLICATION_JSON_VALUE})
 	@ResponseBody
 	public ResponseEntity<GrupoCuentas> deleteGrupoCuentas(@PathVariable int grupoCuentaId){
@@ -72,7 +71,6 @@ public class GrupoCuentasController {
 	
 
 	@RequestMapping(value ="/grupoCuenta/{grupoCuentaId}", method =RequestMethod.GET,
-			consumes ={MediaType.APPLICATION_JSON_VALUE},
 			produces ={MediaType.APPLICATION_JSON_VALUE})
 	@ResponseBody
 	public ResponseEntity<GrupoCuentas> getGrupoCuentaByGrupoCuentaId(@PathVariable int grupoCuentaId){
@@ -83,7 +81,6 @@ public class GrupoCuentasController {
 	}
 	
 	@RequestMapping(value ="/grupoCuenta", method =RequestMethod.GET,
-			consumes ={MediaType.APPLICATION_JSON_VALUE},
 			produces ={MediaType.APPLICATION_JSON_VALUE})
 	@ResponseBody
 	public ResponseEntity<List<GrupoCuentas>> listAllGrupoCuentas(){

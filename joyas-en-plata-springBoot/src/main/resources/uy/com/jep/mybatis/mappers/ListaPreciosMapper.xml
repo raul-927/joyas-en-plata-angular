@@ -7,16 +7,20 @@
 		  	
   	<resultMap type="uy.com.jep.domains.ListaPrecios" id="ListaPreciosResult">
   		<id 	property = "listPrecId" 			column = "list_prec_id"></id>
-  		<result property = "listPrecProductId" 		column = "list_prec_id_trat"/>
 		<result property = "listPrecMonto" 			column = "list_prec_monto"/>
+
+		<collection property ="products"
+			resultMap ="uy.com.jep.mybatis.mappers.ProductMapper.ProductResult"/>
 		
   	</resultMap>
   	
   	<resultMap type="uy.com.jep.domains.ListPrecProductDesc" id="ListaPreciosTratDescResult">
   		<id 	property = "listPrecId" 			column = "list_prec_id"></id>
-  		<result property = "listPrecProductId" 		column = "list_prec_id_trat"/>
 		<result property = "listPrecMonto" 			column = "list_prec_monto"/>
 		<result property = "listPrecDesc"			column = "list_prec_desc"/>
+
+		<collection property ="products"
+			resultMap ="uy.com.jep.mybatis.mappers.ProductMapper.ProductResult"/>
   	</resultMap>
   	
   

@@ -97,7 +97,7 @@ public class ImpuestosSQL {
 		
 	}
 	
-	public String listImpuestoCuentaId(final int id) {
+	public String listImpuestoByCuentaId(final int id) {
 		return  new SQL() {{
 			SELECT("i.impuesto_id, i.impuesto_desc, i.impuesto_desc_abrv, i.impuesto_valor, i.impuesto_tipo, i.impuesto_cuenta");
 			SELECT("c.cuenta_id, c.cuenta_desc, c.cuenta_fecha, c.cuenta_hora, c.cuenta_tipo, c.cuenta_usuario, c.grupo_cuentas_grupo_cuenta_id");
