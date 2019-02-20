@@ -1,4 +1,5 @@
-<form [formGroup]="formTable">
+<form [formGroup]="formTable"
+>
   <table class="table table-hover table-bordered well well-sm">
     <caption><h1>Grupo de Cuentas</h1></caption>
       <thead>
@@ -20,15 +21,15 @@
         </td>
         <td>
 
-          <input type ="image" (click)="habilitoNombre(item.grupoCuentaId)" src="/assets/glyph-iconset-master/svg/si-glyph-pencil.svg" id ="{{item.grupoCuentaId}}"/>
+          <input type ="image" (click)="habilitoNombre(item.grupoCuentaId)" src="/assets/glyph-iconset-master/svg/si-glyph-pencil.svg" id ="pencil_{{item.grupoCuentaId}}"/>
         
         </td>
         <td>
-          <input type ="image" src="/assets/glyph-iconset-master/svg/si-glyph-floppy-disk.svg" href="#"/>
+          <input type ="image" (click)="actualizoNombre(item.grupoCuentaId, item.tipoCuenta)" src="/assets/glyph-iconset-master/svg/si-glyph-floppy-disk.svg" id ="floppy_{{item.grupoCuentaId}}"/>
           
         </td>
         <td>
-          <input type ="image" src="/assets/glyph-iconset-master/svg/si-glyph-delete.svg" href="#"/>
+          <input type ="image" (click)="eliminoRegistro(item.grupoCuentaId)" src="/assets/glyph-iconset-master/svg/si-glyph-delete.svg" id ="delete_{{item.grupoCuentaId}}"/>
           
         </td>
       </tr>
