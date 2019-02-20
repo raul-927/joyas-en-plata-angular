@@ -39,16 +39,49 @@ export class TablaGrupoCuentasComponent implements OnInit, OnChanges {
 
   }
   habilitoNombre(id: any) {
+    const numero: number = this.grupoCuentas.length;
+    console.log('numero: ' + numero);
     const aux = 'grupoCuentaDesc_' + id;
+    this.grupoCuentas.forEach( data => {
+      console.log('data id: ' + data.grupoCuentaId);
+      console.log('id: ' + id);
+      if (id === data.grupoCuentaId) {
+        if (document.getElementById(aux).id === aux) {
+          document.getElementById(aux).removeAttribute('disabled');
+          document.getElementById(aux).setAttribute('enabled', 'enabled');
+          this.habilitoBotonGrabar(id);
+        } else {
+          document.getElementById(aux).removeAttribute('enabled');
+          document.getElementById(aux).setAttribute('disabled', 'disabled');
+          this.desHabilitoBotonGrabar(id);
+        }
+      }
+    });
+
+    // if (document.getElementById(aux).id === aux) {
+    //   document.getElementById(aux).removeAttribute('disabled');
+    //   document.getElementById(aux).setAttribute('enabled', 'enabled');
+    //   this.habilitoBotonGrabar(id);
+    // } else {
+    //   document.getElementById(aux).removeAttribute('enabled');
+    //   document.getElementById(aux).setAttribute('disabled', 'disabled');
+    //   this.desHabilitoBotonGrabar(id);
+    // }
+  }
+
+  habilitoBotonGrabar(id: any) {
+    const aux = 'floppy_' + id;
     if (document.getElementById(aux).id === aux) {
       document.getElementById(aux).removeAttribute('disabled');
       document.getElementById(aux).setAttribute('enabled', 'enabled');
+    }
 
-    } else {
+  }
+  desHabilitoBotonGrabar(id: any) {
+    const aux = 'floppy_' + id;
+    if (document.getElementById(aux).id === aux) {
       document.getElementById(aux).removeAttribute('enabled');
       document.getElementById(aux).setAttribute('disabled', 'disabled');
-
-
     }
   }
   actualizoNombre(id: any, tipo: any) {
@@ -61,10 +94,13 @@ export class TablaGrupoCuentasComponent implements OnInit, OnChanges {
       console.log('Update: ' + JSON.stringify(result));
       // document.getElementById(aux).removeAttribute('enabled');
       // document.getElementById(aux).setAttribute('disabled', 'disabled');
+      this.grupoCuenta.grupoCuentaId = 0;
+      this.grupoCuenta.grupoCuentaDesc = null;
+      this.grupoCuenta.tipoCuenta = null;
+      id = 0;
+      tipo = null;
       this.ngOnChanges();
     }, error => console.error('El error es: ' + error));
-
-
   }
 
   eliminoRegistro(id: any) {

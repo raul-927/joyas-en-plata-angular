@@ -42,9 +42,11 @@ export class GrupoCuentasComponent implements OnInit, OnChanges {
 
     this.formGroupGrupoCuentas = new FormGroup({
       grupoCuentaId: new FormControl(),
-      tipoCuenta: new FormControl(),
+      tipoCuenta: new FormControl('--Seleccionar--'),
       grupoCuentaDesc: new FormControl()
     });
+
+
 
   }
 
@@ -67,10 +69,10 @@ export class GrupoCuentasComponent implements OnInit, OnChanges {
     this.grupCuenta = result;
     this.cambio = true;
     console.log('Save: ' + JSON.stringify(result));
+    this.formGroupGrupoCuentas.controls.tipoCuenta.setValue('--Seleccionar--');
+    this.formGroupGrupoCuentas.controls.grupoCuentaDesc.setValue(null);
     }, error => console.error('El error es: ' + error));
-    // this.grupoCuentasService.listAllGrupoCuentas().subscribe(data => {
-    //   this.grupoCuentas = data;
-    // });
+
   }
 
 }
