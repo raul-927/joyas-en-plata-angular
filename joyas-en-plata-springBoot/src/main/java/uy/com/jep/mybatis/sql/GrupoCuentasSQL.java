@@ -1,5 +1,7 @@
 package uy.com.jep.mybatis.sql;
 
+import java.util.Map;
+
 import org.apache.ibatis.jdbc.SQL;
 
 import uy.com.jep.domains.GrupoCuentas;
@@ -34,16 +36,16 @@ public class GrupoCuentasSQL {
 		}}.toString();
 	}
 
-	public String deleteGrupoCuentas(final int grupoCuentaId) {
-		
+	public String deleteGrupoCuentas(Map<String, Object> map) {
+		int  grupoCuentaId = Integer.parseInt(map.get("grupoCuentaId").toString());
 		return new SQL() {{
 			DELETE_FROM("grupo_cuentas");
-			WHERE("grupo_cuenta_id = "+grupoCuentaId);
+			WHERE("grupo_cuenta_id = " + grupoCuentaId);
 		}}.toString();
 	}
 	
-	public String getGrupoCuentaByGrupoCuentaId(final int grupoCuentaId) {
-		
+	public String getGrupoCuentaByGrupoCuentaId(Map<String, Object> map) {
+		int grupoCuentaId = Integer.parseInt(map.get("grupoCuentaId").toString());
 		return new SQL() {{
 			SELECT("grupo_cuenta_id, grupo_cuenta_desc, tipo_cuenta");
 			FROM("grupo_cuentas");

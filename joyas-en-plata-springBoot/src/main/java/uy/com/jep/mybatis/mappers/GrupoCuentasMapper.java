@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.DeleteProvider;
 import org.apache.ibatis.annotations.InsertProvider;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.annotations.UpdateProvider;
@@ -20,11 +21,11 @@ public interface GrupoCuentasMapper {
 	void updateGrupoCuentas(GrupoCuentas grupoCuentas);
 	
 	@DeleteProvider(type = GrupoCuentasSQL.class, method ="deleteGrupoCuentas")
-	void deleteGrupoCuentas(final int grupoCuentaId);
+	void deleteGrupoCuentas(@Param("grupoCuentaId") int grupoCuentaId);
 	
 	@SelectProvider(type = GrupoCuentasSQL.class, method ="getGrupoCuentaByGrupoCuentaId")
 	@ResultMap("uy.com.jep.mybatis.mappers.GrupoCuentasMapper.GrupoCuentasResult")
-	GrupoCuentas getGrupoCuentaByGrupoCuentaId(final int grupoCuentaId);
+	GrupoCuentas getGrupoCuentaByGrupoCuentaId(@Param("grupoCuentaId") int grupoCuentaId);
 	
 	@SelectProvider(type = GrupoCuentasSQL.class, method ="listAllGrupoCuentas")
 	@ResultMap("uy.com.jep.mybatis.mappers.GrupoCuentasMapper.GrupoCuentasResult")
