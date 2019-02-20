@@ -31,7 +31,6 @@ public class GrupoCuentasSQL {
 			if(!grupoCuentas.getTipoCuenta().equals(null) && !grupoCuentas.getTipoCuenta().equals("")) {
 				SET("tipo_cuenta = '".concat(grupoCuentas.getTipoCuenta()).concat("'"));
 			}
-			SET();
 			WHERE("grupo_cuenta_id = "+grupoCuentas.getGrupoCuentaId());
 		}}.toString();
 	}
@@ -58,6 +57,7 @@ public class GrupoCuentasSQL {
 		return new SQL() {{
 			SELECT("grupo_cuenta_id, grupo_cuenta_desc, tipo_cuenta");
 			FROM("grupo_cuentas");
+			ORDER_BY("Grupo_cuenta_id");
 		}}.toString();
 	}
 }
