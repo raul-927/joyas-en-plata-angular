@@ -33,6 +33,8 @@ ReactiveFormsModule
 import { PageItemComponent } from './components/page-item/page-item.component';
 import { GrupoCuentasComponent } from './components/grupo-cuentas/grupo-cuentas/grupo-cuentas.component';
 import { TablaGrupoCuentasComponent } from './components/grupo-cuentas/tabla-grupo-cuentas/tabla-grupo-cuentas.component';
+import { CuentasFormComponent } from './components/cuentas/cuentas-form/cuentas-form.component';
+import { CuentasTableComponent } from './components/cuentas/cuentas-table/cuentas-table.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +60,9 @@ import { TablaGrupoCuentasComponent } from './components/grupo-cuentas/tabla-gru
     ClienteListComponent,
     PageItemComponent,
     GrupoCuentasComponent,
-    TablaGrupoCuentasComponent
+    TablaGrupoCuentasComponent,
+    CuentasFormComponent,
+    CuentasTableComponent
   ],
   imports: [
     BrowserModule,

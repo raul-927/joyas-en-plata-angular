@@ -1,0 +1,66 @@
+<h3>Crear Nueva Cuenta</h3>
+<form class="form"
+   [formGroup] ="formCuentas"
+   (ngSubmit)="insertCuentas(formCuentas.value)"
+   >
+
+  <fieldset style="width: 350px;">
+    <div class="form-group">
+      <label for="tipoCuenta">Grupo de cuenta:</label>
+      <select 
+          class="form-control"
+          id="grupoCuentas" 
+          formControlName="grupCuentas">
+		  <option>--Seleccionar--</option>
+          <option *ngFor="let grup of grupoCuentas" 
+            [value]="grup.grupoCuentaId">{{grup.grupoCuentaDesc}}</option>
+	  </select>
+    </div>
+
+    <div class="form-group">
+      <label for="cuentaDesc">Nombre de la cuenta:</label>
+      <input  id="cuentaDesc" 
+              name="cuentaDesc" 
+              formControlName="cuentaDesc">
+    </div>
+
+    <div class="form-group">
+      <label for="cuentaTipo">Tipo de cuenta:</label>
+      <input  id="cuentaTipo" 
+              name="cuentaTipo" 
+              formControlName="cuentaTipo">
+    </div>
+
+    <div class="form-group">
+      <label for="cuentaFecha">Fecha de creación:</label>
+      <input  id="cuentaFecha" 
+              name="cuentaFecha" 
+              formControlName="cuentaFecha">
+    </div>
+
+    <div class="form-group">
+      <label for="cuentaHora">Hora de creación:</label>
+      <input  id="cuentaHora" 
+              name="cuentaHora" 
+              formControlName="cuentaHora">
+    </div>
+
+    <div class="form-group">
+      <label for="cuentaUsuario">Usuario que creó la cuenta:</label>
+      <input  id="cuentaUsuario" 
+              name="cuentaUsuario" 
+              formControlName="cuentaUsuario">
+    </div>
+  
+  </fieldset>
+
+  <div class="botonForm">
+    <button type="submit"
+    class="btn btn-primary">
+    Submit link
+  </button>
+
+  </div>
+</form>
+<app-cuentas-table>
+</app-cuentas-table>

@@ -21,7 +21,7 @@
         </td>
         <td>
 
-          <input type ="image" (click)="habilitoNombre(item.grupoCuentaId)" src="/assets/glyph-iconset-master/svg/si-glyph-pencil.svg" id ="pencil_{{item.grupoCuentaId}}"/>
+          <input type ="image" [disabled]="!habilitoLapiz" (click)="habilitoNombre(item.grupoCuentaId)" src="/assets/glyph-iconset-master/svg/si-glyph-pencil.svg" id ="pencil_{{item.grupoCuentaId}}"/>
         
         </td>
         <td>

@@ -31,7 +31,6 @@ export class GrupoCuentasComponent implements OnInit, OnChanges {
   constructor(private grupoCuentasService: GrupoCuentasService) { }
 
   ngOnInit() {
-    const x = TipoCuenta;
     const options = Object.keys(TipoCuenta);
     this.optionsEnumTipoCuenta = options.slice(options.length / 2);
     this.grupoCuentasService.listAllGrupoCuentas().subscribe(data => {

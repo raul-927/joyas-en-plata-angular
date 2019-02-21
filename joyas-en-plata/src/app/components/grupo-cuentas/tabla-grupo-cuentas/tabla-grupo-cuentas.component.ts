@@ -18,6 +18,8 @@ export class TablaGrupoCuentasComponent implements OnInit, OnChanges {
 
    formTable: FormGroup;
 
+   habilitoLapiz: boolean;
+
    @Input()
    cambio: boolean;
 
@@ -26,6 +28,7 @@ export class TablaGrupoCuentasComponent implements OnInit, OnChanges {
    }
 
   ngOnInit() {
+    this.habilitoLapiz = true;
     this.formTable = new FormGroup({
       grupoCuentaDesc: new FormControl()
     });
@@ -36,6 +39,7 @@ export class TablaGrupoCuentasComponent implements OnInit, OnChanges {
     this.grupoCuentasService.listAllGrupoCuentas().subscribe( data => {
       this.grupoCuentas = data;
     });
+    this.grupoCuenta = null;
 
   }
   habilitoNombre(id: any) {
@@ -50,11 +54,14 @@ export class TablaGrupoCuentasComponent implements OnInit, OnChanges {
           document.getElementById(aux).removeAttribute('disabled');
           document.getElementById(aux).setAttribute('enabled', 'enabled');
           this.habilitoBotonGrabar(id);
+          this.habilitoLapiz = false;
         } else {
           document.getElementById(aux).removeAttribute('enabled');
           document.getElementById(aux).setAttribute('disabled', 'disabled');
           this.desHabilitoBotonGrabar(id);
+          this.habilitoLapiz = true;
         }
+
       }
     });
 
@@ -74,6 +81,7 @@ export class TablaGrupoCuentasComponent implements OnInit, OnChanges {
     if (document.getElementById(aux).id === aux) {
       document.getElementById(aux).removeAttribute('disabled');
       document.getElementById(aux).setAttribute('enabled', 'enabled');
+      this.habilitoLapiz = false;
     }
 
   }
@@ -82,6 +90,7 @@ export class TablaGrupoCuentasComponent implements OnInit, OnChanges {
     if (document.getElementById(aux).id === aux) {
       document.getElementById(aux).removeAttribute('enabled');
       document.getElementById(aux).setAttribute('disabled', 'disabled');
+      this.habilitoLapiz = true;
     }
   }
   actualizoNombre(id: any, tipo: any) {
@@ -99,6 +108,7 @@ export class TablaGrupoCuentasComponent implements OnInit, OnChanges {
       this.grupoCuenta.tipoCuenta = null;
       id = 0;
       tipo = null;
+      this.habilitoLapiz = true;
       this.ngOnChanges();
     }, error => console.error('El error es: ' + error));
   }
@@ -106,6 +116,9 @@ export class TablaGrupoCuentasComponent implements OnInit, OnChanges {
   eliminoRegistro(id: any) {
     this.grupoCuentasService.deleteGrupoCuentas(id).subscribe(result => {
       console.log('Delete: ' + JSON.stringify(result));
+      if (!this.habilitoLapiz) {
+        this.habilitoLapiz = true;
+      }
       this.ngOnChanges();
     }, error => console.error('El error es: ' + error));
     console.log('eliminoRegistro cambio: ' + this.cambio);
