@@ -64,16 +64,6 @@ export class TablaGrupoCuentasComponent implements OnInit, OnChanges {
 
       }
     });
-
-    // if (document.getElementById(aux).id === aux) {
-    //   document.getElementById(aux).removeAttribute('disabled');
-    //   document.getElementById(aux).setAttribute('enabled', 'enabled');
-    //   this.habilitoBotonGrabar(id);
-    // } else {
-    //   document.getElementById(aux).removeAttribute('enabled');
-    //   document.getElementById(aux).setAttribute('disabled', 'disabled');
-    //   this.desHabilitoBotonGrabar(id);
-    // }
   }
 
   habilitoBotonGrabar(id: any) {
