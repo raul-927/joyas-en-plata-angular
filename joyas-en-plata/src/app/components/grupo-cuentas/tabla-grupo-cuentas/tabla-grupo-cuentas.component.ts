@@ -91,8 +91,6 @@ export class TablaGrupoCuentasComponent implements OnInit, OnChanges {
     this.grupoCuentasService.updateGrupoCuentas(this.grupoCuenta).subscribe(result => {
       this.grupoCuenta = result;
       console.log('Update: ' + JSON.stringify(result));
-      // document.getElementById(aux).removeAttribute('enabled');
-      // document.getElementById(aux).setAttribute('disabled', 'disabled');
       this.grupoCuenta.grupoCuentaId = 0;
       this.grupoCuenta.grupoCuentaDesc = null;
       this.grupoCuenta.tipoCuenta = null;
