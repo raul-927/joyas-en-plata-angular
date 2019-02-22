@@ -11,27 +11,32 @@ public class GrupoCuentasSQL {
 	public String insertGrupoCuentas(GrupoCuentas grupoCuentas) {
 		
 		return new SQL() {{
-			INSERT_INTO("grupo_cuentas");
-			if(!grupoCuentas.getGrupoCuentaDesc().equals(null) && !grupoCuentas.getGrupoCuentaDesc().equals("")) {
-				VALUES("grupo_cuenta_desc", "'".concat(grupoCuentas.getGrupoCuentaDesc()).concat("'"));
-			}
-			if(!grupoCuentas.getTipoCuenta().equals(null) && !grupoCuentas.getTipoCuenta().equals("")) {
-				VALUES("tipo_cuenta","'".concat(grupoCuentas.getTipoCuenta()).concat("'"));
-			}
+			
+				INSERT_INTO("grupo_cuentas");
+				if(grupoCuentas !=null && !grupoCuentas.getGrupoCuentaDesc().equals(null) && !grupoCuentas.getGrupoCuentaDesc().equals("")) {
+					VALUES("grupo_cuenta_desc", "'".concat(grupoCuentas.getGrupoCuentaDesc()).concat("'"));
+				}
+				if(grupoCuentas !=null && !grupoCuentas.getTipoCuenta().equals(null) && !grupoCuentas.getTipoCuenta().equals("")) {
+					VALUES("tipo_cuenta","'".concat(grupoCuentas.getTipoCuenta()).concat("'"));
+				}
+	
+			
 		}}.toString();
 	}
 	
 	public String updateGrupoCuentas(GrupoCuentas grupoCuentas) {
 		
 		return new SQL() {{
-			UPDATE("grupo_cuentas");
-			if(!grupoCuentas.getGrupoCuentaDesc().equals(null) && !grupoCuentas.getGrupoCuentaDesc().equals("")) {
-				SET("grupo_cuenta_desc = '".concat(grupoCuentas.getGrupoCuentaDesc()).concat("'"));
-			}
-			if(!grupoCuentas.getTipoCuenta().equals(null) && !grupoCuentas.getTipoCuenta().equals("")) {
-				SET("tipo_cuenta = '".concat(grupoCuentas.getTipoCuenta()).concat("'"));
-			}
-			WHERE("grupo_cuenta_id = "+grupoCuentas.getGrupoCuentaId());
+				UPDATE("grupo_cuentas");
+				if(grupoCuentas !=null && !grupoCuentas.getGrupoCuentaDesc().equals(null) && !grupoCuentas.getGrupoCuentaDesc().equals("")) {
+					SET("grupo_cuenta_desc = '".concat(grupoCuentas.getGrupoCuentaDesc()).concat("'"));
+				}
+				if(grupoCuentas !=null && !grupoCuentas.getTipoCuenta().equals(null) && !grupoCuentas.getTipoCuenta().equals("")) {
+					SET("tipo_cuenta = '".concat(grupoCuentas.getTipoCuenta()).concat("'"));
+				}
+				WHERE("grupo_cuenta_id = "+grupoCuentas.getGrupoCuentaId());
+			
+			
 		}}.toString();
 	}
 
