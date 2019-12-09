@@ -5,4 +5,5 @@ export class Product {
     public imageUrl: string;
     public department: Department[];
     public price: number;
+    public sku: string;
 }
