@@ -1,6 +1,6 @@
 import { Component, HostBinding, Input, OnInit } from '@angular/core';
 import {Cliente} from '../../domains/Cliente';
-import {ClienteService } from '../../services/cliente.service';
+//import {ClienteService } from '../../services/cliente.service';
 @Component({
   selector: 'app-cliente-list',
   templateUrl: './cliente-list.component.html',
