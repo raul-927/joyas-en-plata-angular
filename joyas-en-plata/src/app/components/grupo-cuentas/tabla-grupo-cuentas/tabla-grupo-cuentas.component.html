@@ -5,31 +5,58 @@
         <td>id</td>
         <td>Tipo de Cuenta</td>
         <td>Nombre</td>
+        <td>Editar</td>
+        <td>Guardar</td>
+        <td>Eliminar</td>
       </thead>
     <tbody>
       <tr *ngFor="let item of grupoCuentas, let i=index">
         <td>
-          {{item.grupoCuentaId}}
+          <h3>{{item.grupoCuentaId}}</h3>
         </td>
         <td>
-          {{item.tipoCuenta}}
+          <h3>{{item.tipoCuenta}}</h3>
         </td>
-        <td>
-          <input disabled ="true" type ="text" name ="grupoCuentaDesc_{{item.grupoCuentaId}}" formControlName ="grupoCuentaDesc" id ="grupoCuentaDesc_{{item.grupoCuentaId}}" value ="{{item.grupoCuentaDesc}}"/>
-          
-        </td>
-        <td>
 
-          <input type ="image" [disabled]="!habilitoLapiz" (click)="habilitoNombre(item.grupoCuentaId)" src="/assets/glyph-iconset-master/svg/si-glyph-pencil.svg" id ="pencil_{{item.grupoCuentaId}}"/>
-        
-        </td>
         <td>
-          <input disabled ="true" type ="image"  (click)="actualizoNombre(item.grupoCuentaId, item.tipoCuenta)" src="/assets/glyph-iconset-master/svg/si-glyph-floppy-disk.svg" id ="floppy_{{item.grupoCuentaId}}"/>
-          
+          <h3>{{item.grupoCuentaDesc}}</h3>
+          <input 
+            type = "text"
+            disabled ="true" 
+           value ="{{item.grupoCuentaDesc}}"
+            name ="grupoCuentaDesc_{{item.grupoCuentaId}}" 
+            id ="grupoCuentaDesc_{{item.grupoCuentaId}}" 
+           [formControl]="formTable.controls['grupoCuentaDesc']"
+          />
         </td>
+
         <td>
-          <input type ="image" (click)="eliminoRegistro(item.grupoCuentaId)" src="/assets/glyph-iconset-master/svg/si-glyph-delete.svg" id ="delete_{{item.grupoCuentaId}}"/>
-          
+          <input 
+            type ="image" 
+            [disabled]="!habilitoLapiz" 
+            (click)="habilitoNombre(item.grupoCuentaId)" 
+            src="/assets/glyph-iconset-master/svg/si-glyph-pencil.svg" 
+            id ="pencil_{{item.grupoCuentaId}}"
+          />
+        </td>
+
+        <td>
+          <input 
+            disabled ="true" 
+            type ="image"  
+            (click)="actualizoNombre(item.grupoCuentaId, item.tipoCuenta)" 
+            src="/assets/glyph-iconset-master/svg/si-glyph-floppy-disk.svg" 
+            id ="floppy_{{item.grupoCuentaId}}"
+          />
+        </td>
+
+        <td>
+          <input 
+            type ="image" 
+            (click)="eliminoRegistro(item.grupoCuentaId)" 
+            src="/assets/glyph-iconset-master/svg/si-glyph-delete.svg" 
+            id ="delete_{{item.grupoCuentaId}}"
+          />
         </td>
       </tr>
     </tbody>

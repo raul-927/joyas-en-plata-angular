@@ -1,5 +1,6 @@
+import { JsonPipe } from '@angular/common';
 import { Component, HostBinding, Input, OnInit, OnChanges } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { GrupoCuentas } from '../../../domains/GrupoCuentas';
 import {GrupoCuentasService} from '../../../services/grupo-cuentas.service';
 @Component({
@@ -13,33 +14,34 @@ export class TablaGrupoCuentasComponent implements OnInit, OnChanges {
   cssClass = 'row';
 
    grupoCuentas: GrupoCuentas[];
-
    grupoCuenta: GrupoCuentas;
 
    formTable: FormGroup;
+   grupoCuentaDesc: FormControl;
 
    habilitoLapiz: boolean;
 
    @Input()
    cambio: boolean;
 
-  constructor(private grupoCuentasService: GrupoCuentasService) {
-
+  constructor(private grupoCuentasService: GrupoCuentasService, fb:FormBuilder) {
+    this.formTable = fb.group({
+      grupoCuentaDesc: new FormControl()
+    });
    }
 
   ngOnInit() {
     this.habilitoLapiz = true;
-    this.formTable = new FormGroup({
-      grupoCuentaDesc: new FormControl()
-    });
-
   }
 
   ngOnChanges() {
+    console.log('cambio: '+this.cambio);
+    this.grupoCuentas =[];
     this.grupoCuentasService.listAllGrupoCuentas().subscribe( data => {
       this.grupoCuentas = data;
     });
     this.grupoCuenta = null;
+    this.formTable.controls['grupoCuentaDesc'].setValue("");
 
   }
   habilitoNombre(id: any) {
@@ -98,7 +100,7 @@ export class TablaGrupoCuentasComponent implements OnInit, OnChanges {
       tipo = null;
       this.habilitoLapiz = true;
       this.ngOnChanges();
-    }, error => console.error('El error es: ' + error));
+    }, error => console.error('El error es: ' + JSON.stringify(error)));
   }
 
   eliminoRegistro(id: any) {
@@ -110,6 +112,13 @@ export class TablaGrupoCuentasComponent implements OnInit, OnChanges {
       this.ngOnChanges();
     }, error => console.error('El error es: ' + error));
     console.log('eliminoRegistro cambio: ' + this.cambio);
+  }
+
+  public ingresoTexto(id:any, nombre:any):any{
+    if(document.getElementById(id).id = id){
+      this.grupoCuentaDesc.setValue(nombre);
+
+    }
   }
 
 }

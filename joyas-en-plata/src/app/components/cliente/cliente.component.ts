@@ -25,8 +25,6 @@ export class ClienteComponent implements OnInit, OnChanges {
       console.log('Datos: ' + JSON.stringify(data));
     });
 
-
-
      this.formCliente = new FormGroup({
       id: new FormControl(''),
       nombre: new FormControl(''),

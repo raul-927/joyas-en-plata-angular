@@ -35,6 +35,32 @@ import { GrupoCuentasComponent } from './components/grupo-cuentas/grupo-cuentas/
 import { TablaGrupoCuentasComponent } from './components/grupo-cuentas/tabla-grupo-cuentas/tabla-grupo-cuentas.component';
 import { CuentasFormComponent } from './components/cuentas/cuentas-form/cuentas-form.component';
 import { CuentasTableComponent } from './components/cuentas/cuentas-table/cuentas-table.component';
+
+
+/* const routes: Routes = [
+  // basic routes
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'contactus', redirectTo: 'contact' },
+
+  // authentication demo
+  { path: 'login', component: LoginComponent },
+  {
+    path: 'protected',
+    component: ProtectedComponent,
+    canActivate: [ LoggedInGuard ]
+  },
+
+  // nested
+  {
+    path: 'products',
+    component: ProductsComponent,
+    children: childRoutes
+  }
+]; */
+
 @NgModule({
   declarations: [
     AppComponent,

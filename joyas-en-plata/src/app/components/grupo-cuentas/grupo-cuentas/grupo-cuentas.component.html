@@ -10,7 +10,7 @@
       <select 
           class="form-control"
           id="tipoCuenta" 
-          formControlName="tipoCuenta"
+          [formControl]="formGroupGrupoCuentas.controls['tipoCuenta']"
           (change)="parseValueEnumTipoCuenta($event.target.value)">
 		  <option>--Seleccionar--</option>
           <option *ngFor="let name of optionsEnumTipoCuenta" 
@@ -22,7 +22,7 @@
       <label for="grupoCuentaDesc">Nombre de Grupo de cuentas:</label>
       <input  id="grupoCuentaDesc" 
               name="grupoCuentaDesc" 
-              formControlName="grupoCuentaDesc">
+              [formControl]="formGroupGrupoCuentas.controls['grupoCuentaDesc']">
     </div>
   
   </fieldset>

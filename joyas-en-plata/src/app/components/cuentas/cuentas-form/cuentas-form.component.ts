@@ -23,6 +23,11 @@ export class CuentasFormComponent implements OnInit, OnChanges {
   grupoCuentas: GrupoCuentas[];
   // cambio: boolean;
   formCuentas: FormGroup;
+  cuentaDesc: FormControl;
+  cuentaTipo: FormControl;
+  cuentaFecha: FormControl;
+  cuentaHora: FormControl;
+  cuentaUsuario:FormControl;
 
 
   constructor(private cuentaService: CuentasService, private grupoCuentasService: GrupoCuentasService) { }

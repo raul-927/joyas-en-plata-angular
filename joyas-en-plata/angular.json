@@ -23,13 +23,13 @@
               "src/assets"
             ],
             "styles": [
-            	"src/css/bootstrap.min.css",
-            	"src/css/styles.css"
+              "src/css/bootstrap.min.css",
+              "src/css/styles.css"
             ],
             "scripts": [
-            	"src/js/csvaucher.js",
-            	"src/js/jquery.js",
-            	"src/js/bootstrap.js"
+              "src/js/csvaucher.js",
+              "src/js/jquery.js",
+              "src/js/bootstrap.js"
             ]
           },
           "configurations": {
@@ -77,13 +77,13 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-            	"src/css/bootstrap.min.css",
-            	"src/css/styles.css"
+              "src/css/bootstrap.min.css",
+              "src/css/styles.css"
             ],
             "scripts": [
-            	"src/js/csvaucher.js",
-            	"src/js/jquery.js",
-            	"src/js/bootstrap.js"
+              "src/js/csvaucher.js",
+              "src/js/jquery.js",
+              "src/js/bootstrap.js"
             ],
             "assets": [
               "src/favicon.ico",
@@ -133,5 +133,8 @@
       }
     }
   },
-  "defaultProject": "joyas-en-plata"
+  "defaultProject": "joyas-en-plata",
+  "cli": {
+    "analytics": false
+  }
 }

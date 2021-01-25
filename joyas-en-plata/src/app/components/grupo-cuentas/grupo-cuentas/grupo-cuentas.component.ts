@@ -11,42 +11,44 @@ import {TipoCuenta} from '../../../enums/TipoCuenta';
 })
 export class GrupoCuentasComponent implements OnInit, OnChanges {
 
-   optionsEnumTipoCuenta: string[];
+  optionsEnumTipoCuenta: string[];
   tipocuentas: TipoCuenta;
   TipoCuenta: typeof TipoCuenta = TipoCuenta;
 
-
+  grupoCuentaId: FormControl;
+  tipoCuenta: FormControl;
+  grupoCuentaDesc: FormControl;
 
 
   tiposCuentas: TipoCuenta;
-
   valorTipoCuentas: TipoCuenta;
 
   grupCuenta: GrupoCuentas;
-
   grupoCuentas: GrupoCuentas[];
 
   cambio: boolean;
   formGroupGrupoCuentas: FormGroup;
-  constructor(private grupoCuentasService: GrupoCuentasService) { }
+  constructor(private grupoCuentasService: GrupoCuentasService) {
+    this.formGroupGrupoCuentas = new FormGroup({
+      grupoCuentaId:   new FormControl(),
+      tipoCuenta:      new FormControl('--Seleccionar--'),
+      grupoCuentaDesc: new FormControl()
+    });
+   }
 
   ngOnInit() {
     const options = Object.keys(TipoCuenta);
     this.optionsEnumTipoCuenta = options.slice(options.length / 2);
     this.grupoCuentasService.listAllGrupoCuentas().subscribe(data => {
       this.grupoCuentas = data;
-      console.log('grupoCuentas: ');
-      console.log(JSON.stringify(this.grupoCuentas));
+
     });
 
-    this.formGroupGrupoCuentas = new FormGroup({
-      grupoCuentaId: new FormControl(),
-      tipoCuenta: new FormControl('--Seleccionar--'),
+    /*this.formGroupGrupoCuentas = new FormGroup({
+      grupoCuentaId:   new FormControl(),
+      tipoCuenta:      new FormControl('--Seleccionar--'),
       grupoCuentaDesc: new FormControl()
-    });
-
-
-
+    });*/
   }
 
   ngOnChanges() {
@@ -62,12 +64,13 @@ export class GrupoCuentasComponent implements OnInit, OnChanges {
   }
   public insertGrupoCuentas(grupoCuentas: NgForm): void {
     this.cambio = false;
-    console.log('ClientesForm: ' + JSON.stringify(this.formGroupGrupoCuentas.value));
-    console.log('Cliente: ' + JSON.stringify(grupoCuentas));
+    console.log('entro aca ' + this.cambio);
+    //console.log('ClientesForm: ' + JSON.stringify(this.formGroupGrupoCuentas.value));
+    //console.log('Cliente: ' + JSON.stringify(grupoCuentas));
     this.grupoCuentasService.insertGrupoCuentas(grupoCuentas).subscribe(result => {
     this.grupCuenta = result;
     this.cambio = true;
-    console.log('Save: ' + JSON.stringify(result));
+    console.log('entro aca 2 ' + this.cambio);
     this.formGroupGrupoCuentas.controls.tipoCuenta.setValue('--Seleccionar--');
     this.formGroupGrupoCuentas.controls.grupoCuentaDesc.setValue(null);
     }, error => console.error('El error es: ' + error));
